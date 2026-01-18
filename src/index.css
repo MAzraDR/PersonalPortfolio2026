@@ -5,6 +5,12 @@
   --color-mainBg : #EAEAEA;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+
 body {
   background-color: #1F1F1F;
+  
 }

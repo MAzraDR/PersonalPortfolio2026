@@ -1,25 +1,27 @@
+import About from "./components/About";
+import FrontPage from "./components/FrontPage";
+import Navbar from "./components/Navbar";
+import useScroll from "./hooks/useScroll";
+
 export default function App() {
+	
+
+	const scrollRef = useScroll();
+
 	return (
 		<>
-			<div className="flex flex-col justify-center items-center h-screen w-screen">
-				<div className="bg-mainBg h-125 w-screen ">
-					<div className="ms-10">
-						<div className="h-9 mt-10 bg-mainAccent w-full"></div>
-					</div>
-					<div className="w-screen flex flex-col justify-center items-center mt-10">
-						<div className="">
-							<h2 className="uppercase text-2xl font-semibold">
-								Junior Front-end Developer
-							</h2>
-							<h1 className="uppercase text-5xl font-bold text-mainAccent">
-								Muhammad <br /> Azra Dwi <br /> Rizky
-							</h1>
-							<button className="mt-2 group font-bold text-base uppercase w-fit cursor-pointer">
-								More about me?{" "}
-								<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-mainAccent"></span>
-							</button>
-						</div>
-					</div>
+			<Navbar />
+			<div className="h-screen w-screen flex items-center justify-center overflow-hidden">
+				<div
+					ref={scrollRef}
+					className="h-[500px] w-screen overflow-x-scroll overflow-y-hidden snap-x bg-mainBg flex">
+					<section className="w-screen h-[500px] snap-start shrink-0">
+						<FrontPage />
+					</section>
+
+					<section className="w-screen h-[500px] snap-start shrink-0">
+						<About />
+					</section>
 				</div>
 			</div>
 		</>
