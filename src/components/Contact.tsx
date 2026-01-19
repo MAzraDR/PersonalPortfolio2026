@@ -13,7 +13,7 @@ export default function Contact() {
 							<h1 className="text-center md:text-left text-2xl font-bold text-mainAccent uppercase">
 								Contact me
 							</h1>
-							<p className=" text-center md:text-left text-base mb-2 tracking-wider">
+							<p className=" text-center md:text-left text-base mb-2 tracking-wider font-mono">
 								mazradwir@gmail.com
 							</p>
 							<div className="flex md:flex-col gap-3 md:mt-30">

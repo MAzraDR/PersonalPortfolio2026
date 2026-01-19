@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 export default function useScroll() {
 	const scrollRef = useRef<HTMLDivElement | null>(null);
 	const isLocked = useRef(false);
+	const gestureUsed = useRef(false);
 	const currentIndex = useRef(0);
 
 	const touchStartY = useRef(0);
@@ -13,7 +14,7 @@ export default function useScroll() {
 		if (!el) return;
 
 		const handleScrollRequest = (direction: number) => {
-			if (isLocked.current) return;
+			if (isLocked.current || gestureUsed.current) return;
 
 			const totalSections = el.children.length;
 			const nextIndex = Math.min(
@@ -24,6 +25,7 @@ export default function useScroll() {
 			if (nextIndex === currentIndex.current) return;
 
 			isLocked.current = true;
+			gestureUsed.current = true;
 			currentIndex.current = nextIndex;
 
 			el.scrollTo({
@@ -33,7 +35,8 @@ export default function useScroll() {
 
 			setTimeout(() => {
 				isLocked.current = false;
-			}, 600);
+				gestureUsed.current = false;
+			}, 650); // must match smooth scroll duration
 		};
 
 		const canScrollHorizontally = (deltaY: number) => {
@@ -50,39 +53,24 @@ export default function useScroll() {
 			const atTop = scrollTop <= 0;
 			const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
 
-			if (deltaY > 0 && atBottom) return true; // swipe up
-			if (deltaY < 0 && atTop) return true; // swipe down
+			if (deltaY > 0 && atBottom) return true;
+			if (deltaY < 0 && atTop) return true;
 
 			return false;
 		};
 
-		// Wheel support
+		// 🖱️ Wheel
 		const onWheel = (e: WheelEvent) => {
-			const activeSection = el.children[
-				currentIndex.current
-			] as HTMLElement;
-			const verticalScroller = activeSection.querySelector(
-				".vertical-scroll"
-			) as HTMLElement | null;
-
-			if (verticalScroller) {
-				const { scrollTop, scrollHeight, clientHeight } =
-					verticalScroller;
-				const atTop = scrollTop <= 0;
-				const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-
-				if ((e.deltaY > 0 && !atBottom) || (e.deltaY < 0 && !atTop)) {
-					return;
-				}
-			}
+			if (!canScrollHorizontally(e.deltaY)) return;
 
 			e.preventDefault();
 			handleScrollRequest(e.deltaY > 0 ? 1 : -1);
 		};
 
-		// Touch support (vertical swipe → horizontal move)
+		// 📱 Touch
 		const onTouchStart = (e: TouchEvent) => {
 			touchStartY.current = e.touches[0].clientY;
+			gestureUsed.current = false;
 		};
 
 		const onTouchMove = (e: TouchEvent) => {
@@ -92,8 +80,7 @@ export default function useScroll() {
 		const onTouchEnd = () => {
 			const deltaY = touchStartY.current - touchEndY.current;
 
-			if (Math.abs(deltaY) < 50) return;
-
+			if (Math.abs(deltaY) < 80) return;
 			if (!canScrollHorizontally(deltaY)) return;
 
 			handleScrollRequest(deltaY > 0 ? 1 : -1);
