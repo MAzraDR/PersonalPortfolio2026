@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mainAccent : #515BEA;
-  --color-mainBg : #EAEAEA;
+	--color-mainAccent: #515bea;
+	--background-image-mainBg: linear-gradient(
+		135deg,
+		#eaeaea 0%,
+		#d1d5db 50%,
+		#515bea10 100%
+	);
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
+/* ::-webkit-scrollbar {
+	display: none;
+} */
 
 body {
   background-color: #1F1F1F;
-  
 }

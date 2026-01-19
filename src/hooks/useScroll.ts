@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export default function useScroll() {
-    const scrollRef = useRef<HTMLDivElement | null>(null);
+	const scrollRef = useRef<HTMLDivElement | null>(null);
 	const isLocked = useRef(false);
 	const currentIndex = useRef(0);
 
@@ -30,40 +30,41 @@ export default function useScroll() {
 
 			setTimeout(() => {
 				isLocked.current = false;
-			}, 500);
+			}, 600);
 		};
 
 		const onWheel = (e: WheelEvent) => {
-			if (Math.abs(e.deltaY) < 10) return;
+			const activeSection = el.children[
+				currentIndex.current
+			] as HTMLElement;
+			const verticalScroller = activeSection.querySelector(
+				".vertical-scroll"
+			) as HTMLElement | null;
+
+			// ✅ If vertical scroll exists, check boundaries
+			if (verticalScroller) {
+				const { scrollTop, scrollHeight, clientHeight } =
+					verticalScroller;
+				const atTop = scrollTop <= 0;
+				const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+				// Allow vertical scroll normally
+				if ((e.deltaY > 0 && !atBottom) || (e.deltaY < 0 && !atTop)) {
+					return; // ❗ DO NOT preventDefault
+				}
+			}
+
+			// Horizontal scroll allowed
 			e.preventDefault();
 			handleScrollRequest(e.deltaY > 0 ? 1 : -1);
 		};
 
-		const onKeyDown = (e: KeyboardEvent) => {
-			const keys = ["ArrowRight", "ArrowLeft", " ", "PageDown", "PageUp"];
-			if (keys.includes(e.key)) {
-				e.preventDefault(); // Stop the browser's "stuttery" native move
-
-				if (
-					e.key === "ArrowRight" ||
-					e.key === " " ||
-					e.key === "PageDown"
-				) {
-					handleScrollRequest(1);
-				} else {
-					handleScrollRequest(-1);
-				}
-			}
-		};
-
 		el.addEventListener("wheel", onWheel, { passive: false });
-		window.addEventListener("keydown", onKeyDown); // Listen globally for keys
 
 		return () => {
 			el.removeEventListener("wheel", onWheel);
-			window.removeEventListener("keydown", onKeyDown);
 		};
-	}, []);
+	}, [scrollRef]);
 
-    return scrollRef
+	return scrollRef;
 }

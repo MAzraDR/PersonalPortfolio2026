@@ -1,7 +1,7 @@
 export default function FrontPage() {
 	return (
 		<>
-			<div className="h-full w-screen flex flex-col justify-center items-center">
+			<div id="home" className="h-full w-screen flex flex-col justify-center items-center">
 				<div className="text-center md:text-left">
 					<h2 className="uppercase text-xl md:text-2xl font-semibold">
 						Junior Front-end Developer
