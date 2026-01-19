@@ -3,6 +3,7 @@ import Contact from "./components/Contact";
 import FrontPage from "./components/FrontPage";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
+import Services from "./components/Services";
 import useScroll from "./hooks/useScroll";
 
 export default function App() {	
@@ -21,6 +22,9 @@ export default function App() {
 
 					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
 						<About />
+					</section>
+					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+						<Services />
 					</section>
 					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
 						<Projects />

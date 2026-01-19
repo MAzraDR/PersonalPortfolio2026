@@ -19,7 +19,7 @@ export default function Contact() {
 							<div className="flex md:flex-col gap-3 md:mt-30">
 								{contactData.map((item, i) => (
 									<a
-										href={item.href}
+										href={item.href} target="_blank"
 										key={i}
 										className="group font-mono text-lg w-fit">
 										{item.text}{" "}

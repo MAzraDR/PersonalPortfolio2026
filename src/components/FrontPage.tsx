@@ -1,12 +1,13 @@
 import { handleNavigation } from "../utils/useNavigation";
 import { motion } from "motion/react";
 
+
 export default function FrontPage() {
 	return (
 		<>
 			<div
 				id="home"
-				className="h-full w-screen flex flex-col justify-center items-center">
+				className="relative h-full w-screen flex flex-col justify-center items-center">
 				<div className="text-center md:text-left">
 					<motion.h2
 						initial={{ translateX: -900 }}
@@ -52,6 +53,20 @@ export default function FrontPage() {
 						</button>
 					</motion.div>
 				</div>
+				<motion.div
+					initial={{ translateX: -900 }}
+					animate={{ translateX: 0 }}
+					transition={{
+						ease: "easeInOut",
+						duration: 1,
+						delay: 1.5,
+					}}
+				
+					className="absolute bottom-10">
+					<p className="text-sm text-center tracking-widest font-medium">
+						Reminder This page use Horizontal scrolling{" "}
+					</p>
+				</motion.div>
 			</div>
 		</>
 	);
