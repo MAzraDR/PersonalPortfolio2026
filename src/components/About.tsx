@@ -23,7 +23,7 @@ export default function About() {
 			<section className="overflow-hidden h-full w-full flex flex-col justify-center items-center">
 				<div
 					id="about"
-					className="mt-25 h-full overflow-y-auto vertical-scroll px-4">
+					className="py-25 md:pt-15 md:pb-0 h-full overflow-y-auto vertical-scroll px-4">
 					<div className="flex flex-col md:flex-row gap-10 md:gap-20 justify-center border-2 mt-5 lg:m-0 p-10 md:p-20 border-mainAccent relative">
 						<div className="absolute top-0 right-0 flex flex-row gap-2 p-2 border-2 border-mainAccent border-t-0 border-r-0">
 							{/* Minimize */}
@@ -46,7 +46,7 @@ export default function About() {
 						</div>
 						<div className="max-w-md">
 							<h2 className="text-2xl font-bold mb-2 text-mainAccent">
-								GAME LOVER JUNIOR FRONT-END DEVELOPER
+								GAME LOVER FRONT-END DEV
 							</h2>
 							<p className="text-base leading-relaxed">
 								As a fresh graduate and active freelancer, I
@@ -60,20 +60,20 @@ export default function About() {
 								collaborative team environment.
 							</p>
 						</div>
-						<div className="">
+						<div className="shadow-2xl p-3 rounded-xl bg-white/20 backdrop-blur-md border border-white/30">
 							<h2 className="uppercase text-2xl font-bold mb-2 text-mainAccent">
 								Skills
 							</h2>
-							<div className="flex flex-row flex-wrap gap-8 max-w-md justify-center md:justify-start items-center sm:grid sm:grid-cols-2 lg:flex lg:flex-row shadow-2xl p-3 rounded-xl">
+							<div className="flex flex-row flex-wrap gap-8 max-w-md justify-center md:justify-start items-center sm:grid sm:grid-cols-2 lg:flex lg:flex-row ">
 								{/* Row 1 */}
 								<FaHtml5
 									className={`${iconStyle}  text-[#E34F26]`}
 									title="HTML5"
-								/>								
+								/>
 								<FaReact
 									className={`${iconStyle}  text-[#61DAFB]`}
 									title="React"
-								/>								
+								/>
 								<FaBootstrap
 									className={`${iconStyle}  text-[#7952B3]`}
 									title="Bootstrap"
