@@ -1,13 +1,7 @@
 import { navbarData } from "../data/navbarData";
+import { handleNavigation } from "../utils/useNavigation";
 
 export default function Navbar() {
-	const handleNavigation = (href: string) => {
-		const targetSection = document.querySelector(href);
-		if (targetSection) {
-			targetSection.scrollIntoView({ behavior: "smooth" });
-		}
-	};
-
 	return (
 		<>
 			<div className="z-50 absolute w-full flex justify-center items-center mt-10">
@@ -19,7 +13,7 @@ export default function Navbar() {
 							className="relative group inline-block cursor-pointer"
 							key={i}>
 							{item.text}{" "}
-							<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
+							<span className="block max-w-0 group-hover:max-w-full group-active:max-w-full  transition-all duration-500 h-0.5 bg-white"></span>
 						</button>
 					))}
 				</nav>

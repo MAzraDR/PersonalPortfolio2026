@@ -23,8 +23,8 @@ export default function About() {
 			<section className="overflow-hidden h-full w-full flex flex-col justify-center items-center">
 				<div
 					id="about"
-					className="py-25 md:pt-15 md:pb-0 h-full overflow-y-auto vertical-scroll px-4">
-					<div className="flex flex-col md:flex-row gap-10 md:gap-20 justify-center border-2 mt-5 lg:m-0 p-10 md:p-20 border-mainAccent relative">
+					className="py-20 md:pt-15 md:pb-0 h-full overflow-y-auto vertical-scroll px-4">
+					<div className="flex flex-col md:flex-row gap-10 md:gap-20 justify-center border-2 mt-5 lg:m-0 p-10 md:p-20 border-mainAccent relative rounded-xl">
 						<div className="absolute top-0 right-0 flex flex-row gap-2 p-2 border-2 border-mainAccent border-t-0 border-r-0">
 							{/* Minimize */}
 							<VscChromeMinimize

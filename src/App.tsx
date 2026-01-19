@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Contact from "./components/Contact";
 import FrontPage from "./components/FrontPage";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
@@ -23,6 +24,9 @@ export default function App() {
 					</section>
 					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
 						<Projects />
+					</section>
+					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+						<Contact />
 					</section>
 				</div>
 			</div>

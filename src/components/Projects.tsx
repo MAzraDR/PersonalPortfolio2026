@@ -4,9 +4,10 @@ export default function Projects() {
 			<section
 				id="projects"
 				className="overflow-hidden h-full w-full flex flex-col justify-center items-center">
-				<div className="mt-15 h-full overflow-y-auto vertical-scroll px-4">					
-                    <h1 className="text-3xl">testing</h1>
-				</div>
+				<h1 className="text-3xl font-semibold text-mainAccent">
+					COMING SOON
+				</h1>
+				{/* <div className="py-25 md:pt-15 md:pb-0 h-full overflow-y-auto vertical-scroll px-4"></div> */}
 			</section>
 		</>
 	);
