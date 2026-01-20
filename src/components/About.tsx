@@ -11,10 +11,10 @@ export default function About() {
 
 	return (
 		<>
-			<section className="overflow-hidden h-full w-full flex flex-col justify-center items-center">
+			<section className="overflow-hidden h-full w-full ">
 				<div
 					id="about"
-					className="py-20 md:pt-0 md:pb-0 h-full overflow-y-auto vertical-scroll px-4">
+					className="py-20 md:pt-0 md:pb-0 h-full overflow-y-auto vertical-scroll px-4 flex flex-col justify-center items-center">
 					<div className="flex flex-col justify-center border-2 mt-5 lg:m-0 p-10 md:p-15 border-mainAccent relative rounded-xl">
 						<div className="absolute top-0 right-0 flex flex-row gap-2 p-2 border-2 border-mainAccent border-t-0 border-r-0">
 							{/* Minimize */}

@@ -15,21 +15,21 @@ export default function App() {
 			<div className="h-screen w-screen flex items-center justify-center overflow-hidden">
 				<div
 					ref={scrollRef}
-					className="h-screen lg:h-125 w-screen overflow-x-scroll overflow-y-hidden snap-x flex touch-pan-y">
-					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+					className="h-screen  w-screen overflow-x-scroll overflow-y-hidden snap-x flex touch-pan-y">
+					<section className="w-screen h-screen  snap-start shrink-0">
 						<FrontPage />
 					</section>
 
-					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+					<section className="w-screen h-screen  snap-start shrink-0">
 						<About />
 					</section>
-					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+					<section className="w-screen h-screen  snap-start shrink-0">
 						<Services />
 					</section>
-					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+					<section className="w-screen h-screen  snap-start shrink-0">
 						<Projects />
 					</section>
-					<section className="w-screen h-screen lg:h-125 snap-start shrink-0">
+					<section className="w-screen h-screen  snap-start shrink-0">
 						<Contact />
 					</section>
 				</div>
