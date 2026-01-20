@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-	--color-mainAccent: #515bea;
-	--background-image-mainBg: linear-gradient(
-		135deg,
-		#eaeaea 0%,
-		#d1d5db 50%,
-		#515bea10 100%
-	);
+	--color-mainAccent: #683527	;
+	--animate-marquee: marquee 10s linear infinite;
+	
+	@keyframes marquee {
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
 }
 
 ::-webkit-scrollbar {
@@ -20,7 +24,7 @@ body {
 }
 
 body {
-  background-color: #1F1F1F;
+	background-color: #edf4ed;
 }
 
 .scroll-container {

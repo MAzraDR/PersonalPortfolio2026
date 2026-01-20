@@ -22,11 +22,14 @@ export default function Services() {
 				<h2 className="uppercase text-2xl text-center font-bold text-mainAccent">
 					Provided Services
 				</h2>
-                <p className="text-center text-base">This is the list of what i mostly works with</p>
+				<p className="text-center text-base">
+					This is the list of what i mostly works with
+				</p>
 				{servicesData.map((item, i) => (
 					<div
 						key={i}
-						className="border-b border-mainAccent mx-5 lg:mx-30">
+						className="border-b border-mainAccent mx-5 lg:mx-30 touch-pan-y"
+						data-no-swipe>
 						<button
 							onClick={() => toggleAccordion(i)}
 							className="w-full flex justify-between items-center py-5 cursor-pointer gap-10">
@@ -59,9 +62,9 @@ export default function Services() {
 								<p className=" text-sm md:text-base font-normal ">
 									{item.includedFeature}
 								</p>
-								<p className="text-xs md:text-base uppercase font-semibold">
+								{/* <p className="text-xs md:text-base uppercase font-semibold">
 									{item.pricing}
-								</p>
+								</p> */}
 							</div>
 						</div>
 					</div>

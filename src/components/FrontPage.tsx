@@ -62,9 +62,9 @@ export default function FrontPage() {
 						delay: 1.5,
 					}}
 				
-					className="absolute bottom-10">
+					className="absolute bottom-20">
 					<p className="text-sm text-center tracking-widest font-medium">
-						Reminder This page use Horizontal scrolling{" "}
+						This page use horizontal scroll, please scroll slowly
 					</p>
 				</motion.div>
 			</div>

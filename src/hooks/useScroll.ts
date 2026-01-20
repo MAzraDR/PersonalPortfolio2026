@@ -59,16 +59,24 @@ export default function useScroll() {
 			return false;
 		};
 
-		// 🖱️ Wheel
+		const isInsideNoSwipe = (target: EventTarget | null) => {
+			if (!(target instanceof HTMLElement)) return false;
+			return !!target.closest("[data-no-swipe], .no-swipe");
+		};
+
+		//  Wheel
 		const onWheel = (e: WheelEvent) => {
+			if (isInsideNoSwipe(e.target)) return;
 			if (!canScrollHorizontally(e.deltaY)) return;
 
 			e.preventDefault();
 			handleScrollRequest(e.deltaY > 0 ? 1 : -1);
 		};
 
-		// 📱 Touch
+		//  Touch
+
 		const onTouchStart = (e: TouchEvent) => {
+			if (isInsideNoSwipe(e.target)) return;
 			touchStartY.current = e.touches[0].clientY;
 			gestureUsed.current = false;
 		};
@@ -77,7 +85,8 @@ export default function useScroll() {
 			touchEndY.current = e.touches[0].clientY;
 		};
 
-		const onTouchEnd = () => {
+		const onTouchEnd = (e: TouchEvent) => {
+			if (isInsideNoSwipe(e.target)) return;
 			const deltaY = touchStartY.current - touchEndY.current;
 
 			if (Math.abs(deltaY) < 80) return;
