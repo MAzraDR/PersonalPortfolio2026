@@ -1,5 +1,5 @@
 import BlackBirdImg1 from "../assets/Blackbird/Img1.webp";
-import AKEBTImg1 from "../assets/Arknight-Endfield-Blueprint-tool/img1.png"
+import AKEBTImg1 from "../assets/Arknight-Endfield-Blueprint-tool/img1.png";
 
 export const projectsData = [
 	{
@@ -14,7 +14,7 @@ export const projectsData = [
 		description:
 			"E-commerce platform for Blackbird Suppressors, precision-engineered for hunters and tactical shooters. Built with Next.js and React, it features a streamlined 'Direct-to-Door' purchase workflow that simplifies complex regulatory processes into a seamless user experience.",
 		img: BlackBirdImg1,
-		liveLink: "https://blackbird-coral.vercel.app/",
+		liveLink: "https://www.blackbirdrd.com/",
 	},
 	{
 		name: "Upcoming Projects",
