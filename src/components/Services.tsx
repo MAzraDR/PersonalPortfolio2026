@@ -1,74 +1,48 @@
-import { servicesData } from "../data/servicesData";
-import useAccordion from "../hooks/useAccordion";
+// import { servicesData } from "../data/servicesData";
+// import useAccordion from "../hooks/useAccordion";
+import { useState } from "react";
+import { GitHubCalendar } from "react-github-calendar";
 
 export default function Services() {
-	const { isOpen, toggleAccordion } = useAccordion();
+	const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
-	const ArrowUp = () => (
-		<svg className="w-5 h-5 " viewBox="0 0 16 16" fill="currentColor">
-			<path
-				fillRule="evenodd"
-				d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z"
-				clipRule="evenodd"
-			/>
-		</svg>
-	);
+	const buttonStyle =
+		"bg-mainAccent w-full opacity-90 m-1 px-3 py-1 rounded transition-all duration-150 ease-in-out hover:opacity-100 active:scale-95 cursor-pointer font-semibold";
 
 	return (
 		<>
 			<section
-				id="services"
-				className="overflow-hidden h-full w-full flex flex-col justify-center  md:pt-0">
-				<h2 className="uppercase text-2xl text-center font-bold text-mainAccent">
-					Provided Services
-				</h2>
-				<p className="text-center text-base">
-					This is the list of what i mostly works with
-				</p>
-				{servicesData.map((item, i) => (
-					<div
-						key={i}
-						className="border-b border-mainAccent mx-5 lg:mx-30 touch-pan-y"
-						data-no-swipe>
-						<button
-							onClick={() => toggleAccordion(i)}
-							className="w-full flex justify-between items-center py-5 cursor-pointer gap-10">
-							<div className="">
-								<p className="font-bold text-base md:text-lg uppercase text-left text-mainAccent">
-									{item.packageName}
-								</p>
-								<p
-									className={`font-normal text-left text-sm md:text-base ${
-										isOpen(i)
-											? "line-clamp-none"
-											: "line-clamp-1"
-									}`}>
-									{item.useCase}
-								</p>
-							</div>
-							<span
-								className={`transition-transform duration-300 ${
-									isOpen(i) ? "rotate-180" : ""
-								}`}>
-								<ArrowUp />
-							</span>
-						</button>
+				id="activities"
+				className="overflow-hidden h-full w-full flex flex-col justify-center items-center md:pt-0">
+				<div className=" bg-[#2c130c] text-white flex flex-col gap-5 w-[90%] lg:w-fit p-5 rounded-lg">
+					<h1 className=" text-center font-bold mb-5 text-lg uppercase">
+						Github Activities
+					</h1>
 
-						<div
-							className={`overflow-hidden transition-all duration-500 ease-in-out ${
-								isOpen(i) ? "max-h-40" : "max-h-0"
-							}`}>
-							<div className="pb-2 flex items-center justify-between gap-10">
-								<p className=" text-sm md:text-base font-normal ">
-									{item.includedFeature}
-								</p>
-								{/* <p className="text-xs md:text-base uppercase font-semibold">
-									{item.pricing}
-								</p> */}
-							</div>
+					<div className="flex gap-5 flex-col lg:flex-row">
+						<GitHubCalendar
+							username="MAzraDR"
+							theme={{
+								dark: ["#3B1E12", "#A88B71"], // [Lowest intensity (bg match), Highest intensity (bright green)]
+							}}
+							year={selectedYear}
+						/>
+						<div className="border-r-2 border-mainAccent "></div>
+						<div className="flex flex-row lg:flex-col justify-around items-center">
+							<button
+								className={buttonStyle}
+								onClick={() => setSelectedYear(2026)}>
+								2026
+							</button>
+							<button className={buttonStyle} onClick={() => setSelectedYear(2025)}>
+								2025
+							</button>
+							<button className={buttonStyle} onClick={() => setSelectedYear(2024)}>
+								2024
+							</button>
 						</div>
 					</div>
-				))}
+				</div>
 			</section>
 		</>
 	);

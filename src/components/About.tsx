@@ -37,9 +37,9 @@ export default function About() {
 						</div>
 						<div className="max-w-md">
 							<h2 className="text-2xl md:text-4xl font-bold mb-2 text-mainAccent">
-								GAME LOVER FRONT-END DEV
+								ABOUT MYSELF
 							</h2>
-							<p className="text-base leading-relaxed">
+							<p className="leading-relaxed text-lg text-justify">
 								As a fresh graduate and active freelancer, I
 								specialize in building responsive,
 								high-performance web applications using React,

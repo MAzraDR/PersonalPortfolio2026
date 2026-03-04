@@ -1,7 +1,6 @@
 import { handleNavigation } from "../utils/useNavigation";
 import { motion } from "motion/react";
 
-
 export default function FrontPage() {
 	return (
 		<>
@@ -40,10 +39,10 @@ export default function FrontPage() {
 							delay: 1,
 						}}>
 						<a
-							href="/CV.pdf"
+							href="/Resume_M.Azra Dwi Rizky.pdf"
 							download={"CV M. Azra Dwi Rizky.pdf"}
 							className=" inline-block mt-2 group w-fit font-semibold text-base capitalize cursor-pointer">
-							Download my CV{" "}
+							Download my resume{" "}
 							<span className="block max-w-0 group-hover:max-w-full group-active:max-w-full transition-all duration-500 h-0.5 bg-mainAccent"></span>
 						</a>
 						<button
@@ -61,7 +60,6 @@ export default function FrontPage() {
 						duration: 1,
 						delay: 1.5,
 					}}
-				
 					className="absolute bottom-20">
 					<p className="text-sm text-center tracking-widest font-medium">
 						This page use horizontal scroll, please scroll slowly

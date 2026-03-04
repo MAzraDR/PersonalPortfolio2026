@@ -2,9 +2,12 @@ import { useState } from "react";
 import { projectsData } from "../data/projectsData";
 
 export default function Projects() {
-	const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-	console.log(expandedIndex);
+	const [expandedTitleIndex, setExpandedTitleIndex] = useState<number | null>(
+		null
+	);
+	const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState<
+		number | null
+	>(null);
 
 	return (
 		<section id="projects" className="overflow-hidden h-full w-full px-4">
@@ -12,16 +15,21 @@ export default function Projects() {
 				{/* Section Header */}
 				<div
 					className={`mb-12 text-center ${
-						expandedIndex != null ? "lg:mt-40" : "lg:mt-15"
+						expandedTitleIndex != null ||
+						expandedDescriptionIndex != null
+							? "lg:mt-40"
+							: "lg:mt-15"
 					}`}>
-					<h2 className="text-4xl font-bold  mb-4">My Projects</h2>
+					<h2 className="text-4xl font-bold uppercase text-mainAccent mb-4">Projects</h2>
 					<div className="h-1 w-20 bg-mainAccent mx-auto rounded-full"></div>
 				</div>
 
 				{/* Projects Grid */}
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start mb-10">
 					{projectsData.map((item, i) => {
-						const isExpanded = expandedIndex === i;
+						const isTitleExpanded = expandedTitleIndex === i;
+						const isDescriptionExpanded =
+							expandedDescriptionIndex === i;
 
 						return (
 							<div
@@ -59,26 +67,36 @@ export default function Projects() {
 
 								{/* Content Section */}
 								<div className="p-8 flex flex-col">
-									<h3 className="text-2xl mb-1 font-bold  text-mainAccent">
+									<h3
+										className={`text-2xl mb-1 font-bold text-mainAccent   ${
+											isTitleExpanded
+												? "line-clamp-none"
+												: "line-clamp-1"
+										}`}
+										onClick={() =>
+											setExpandedTitleIndex(
+												isTitleExpanded ? null : i
+											)
+										}>
 										{item.name}
 									</h3>
 									<p
 										className={`text-gray-500 text-sm font-normal leading-relaxed transition-all mb-2 
                                 ${
-									isExpanded
+									isDescriptionExpanded
 										? "line-clamp-none"
 										: "line-clamp-3"
 								}`}>
 										{item.description}
-									</p>
+									</p>{" "}
 									<button
 										onClick={() =>
-											setExpandedIndex(
-												isExpanded ? null : i
+											setExpandedDescriptionIndex(
+												isDescriptionExpanded ? null : i
 											)
 										}
-										className="text-mainAccent text-xs font-bold uppercase tracking-wider mb-5 text-left">
-										{isExpanded ? "Show Less" : "Read More"}
+										className="text-mainAccent text-xs font-bold uppercase tracking-wider mb-5 text-left cursor-pointer">
+										{isDescriptionExpanded ? "Show Less" : "Read More"}
 									</button>
 									{/* Footer / Link */}
 									<div className="mt-auto flex items-center justify-between">

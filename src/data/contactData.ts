@@ -5,11 +5,11 @@ export const contactData = [
 	},
 	{ href: "https://github.com/MAzraDR", text: "Github" },
 	{
-		href: "https://www.linkedin.com/in/muhammad-azra-dwi-rizky",
+		href: "https://www.linkedin.com/in/muhammad-azra-dwi-rizky-b689892b8/",
 		text: "LinkedIn",
 	},
 	{
-		href: "#",
+		href: "https://www.instagram.com/azrr132",
 		text: "Instagram",
 	},
 ];
