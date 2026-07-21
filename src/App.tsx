@@ -1,5 +1,6 @@
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Experience from "./components/Experience";
 import FrontPage from "./components/FrontPage";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
@@ -19,9 +20,11 @@ export default function App() {
 					<section className="w-screen h-screen  snap-start shrink-0">
 						<FrontPage />
 					</section>
-
 					<section className="w-screen h-screen  snap-start shrink-0">
 						<About />
+					</section>
+					<section className="w-screen h-screen  snap-start shrink-0">
+						<Experience />
 					</section>
 					<section className="w-screen h-screen  snap-start shrink-0">
 						<Services />
